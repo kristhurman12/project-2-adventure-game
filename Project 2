@@ -1,0 +1,103 @@
+import time
+
+# Function to display the introduction
+def display_introduction():
+    print("Welcome to the Privacy Issues Adventure Game!")
+    time.sleep(1)
+    print("\nYou are an owner of a small crocher business.")
+    time.sleep(1)
+    print("\nYou want to increase you social media following and get more exposure in the world.")
+    time.sleep(1)
+    print("\nLet's get started!\n")
+
+# Function to ask the player to choose a path
+def choose_path():
+    print("You get a message from an old friend you haven't"
+          + " talked to in a long time. They ask you if you are" +
+          " interested in growing you account! Do you:\n")
+    print("1. Reply to the message saying 'yes!'")
+    print("2. Ignore the message.")
+    return input("Enter your choice (1 or 2): ")
+ 
+# Function to play the game
+def play_game():
+    display_introduction()
+    while True:
+        choice = choose_path()
+        if choice == "1":
+            print("\nYou chose to reply to the message...")
+            time.sleep(1)
+            print("Yay! They are excited to hear back from you.")
+            return True
+        elif choice == "2":
+            print("\nYou chose to  ignore the message...")
+            time.sleep(1)
+            print("Your business stops booming and you go bankrupt! Game over!")
+            return False
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+
+# Function to ask the player if they want to play again
+def play_again():
+    while True:
+        play_again = input("\nDo you want to play again? (yes/no): ").lower()
+        if play_again == "yes":
+            return True
+        elif play_again == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+# Main function to run the game
+def main():
+    while True:
+        won = play_game()
+        if not won:
+            if not play_again():
+                break
+        else:
+            print("\nThey reply back to you instantly and" 
+                  + " ask you to follow a website link and fill" 
+                  + " in information about yor business and" 
+                  + " social media accounts. Do you:")
+            time.sleep(1)
+            print("\n1. Fill in the information about your business and social media accounts.")
+            print("2. Ask why they need the information.")
+            while True:
+                choice = input("Enter your choice (1 or 2): ").lower()
+                if choice == "1":
+                    print("\nYou chose to fill in you information...")
+                    time.sleep(1)
+                    print("OH NO! Your accounts got hacked and you lost everything! Game over!")
+                    time.sleep(1)
+                    return False
+                if choice == "2":
+                    print("\nYou choose to ask why they need the information.")
+                    time.sleep(1)
+                    print("\nThey reply that they need the information to"
+                    + " log into your account and upgrade your account" 
+                    + " to add more followers! Do you:")
+                    time.sleep(1)
+                    print("\n1. Say 'Ok!' and fill in your information.")
+                    print("2. Report and block this scam account.")
+                    while True:
+                        choice = input("Enter your choice (1 or 2): ").lower()
+                        if choice == "1":
+                            print("\nYou chose to fill in you information...")
+                            time.sleep(1)
+                            print("OH NO! Your accounts got hacked and you lost everything! Game over!")
+                            time.sleep(1)
+                            return False
+                        if choice == "2":
+                            print("\n You chose to report and block this scam account...")
+                            time.sleep(1)
+                            print("You successfully dodged a scam account, and message the real person.")
+                            print("The real friend replies back and offers you a real offer to expand your account and you become famous! You won the game!")
+                            return True
+                        else:
+                            print("Invalid choice. Please enter 1 or 2.")
+        if not play_again():
+            break
+
+if __name__ == "__main__":
+    main()
